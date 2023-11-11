@@ -1,0 +1,40 @@
+---
+- name: UPDATE PACKS
+  tags: default
+  apt:
+    upgrade: dist
+    force_apt_get: yes
+
+- name: "DEFAULT PACKS"
+  tags: default
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - vim
+      - curl
+      - wget
+      - remmina
+      - zenity
+      - flameshot
+      - alacarte
+      - htop
+      - btop
+      - nmap
+      - wireguard
+      - resolvconf
+
+- name: WIREGUARD PACKS
+  tags:
+    - wireguard
+    - default
+  include: wireguard.yml
+
+- name: HASHCORP PACKS
+  tags:
+    - hashcorp
+    - default
+  include: wireguard.yml
+      

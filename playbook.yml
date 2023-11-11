@@ -1,0 +1,6 @@
+- name: MENU
+  become: true
+  become_method: sudo
+  hosts: remote
+  roles:
+    - packages
