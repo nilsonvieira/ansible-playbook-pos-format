@@ -1,0 +1,21 @@
+---
+- name: ADD APT KEY HASHCORP
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+
+- name: ADD REPOS HASHCORP
+  apt_repository:
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main
+    state: present
+    filename: hashicorp.list
+
+- name: INSTALAR PACKS HASHCORP
+  apt:
+    name: '{{ packages }}'
+    state: present
+  become: true
+  vars:
+    packages:
+      - terraform
+      - vagrant

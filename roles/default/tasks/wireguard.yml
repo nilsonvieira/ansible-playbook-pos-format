@@ -1,0 +1,13 @@
+---
+- name: INSTALL PACKS WIREGUARD
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - resolvconf
+      - wireguard
+      
+- name: RECONFIGURE RESOLVCONF
+  command: sudo dpkg-reconfigure -f noninteractive resolvconf
