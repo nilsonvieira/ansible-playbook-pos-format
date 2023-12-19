@@ -1,0 +1,31 @@
+---
+- name: ADD THE FLATHUB FLATPAK REPOSITORY REMOTETO THE USER INSTALLATION
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: system
+
+- name: INSTALL FLATPAK APPS
+  community.general.flatpak:
+    name:
+      - com.spotify.Client
+      - com.google.Chrome
+      - org.telegram.desktop
+      - com.discordapp.Discord
+      - com.getpostman.Postman
+      - com.visualstudio.code
+      - com.jetbrains.IntelliJ-IDEA-Ultimate
+      - com.jetbrains.GoLand
+      - com.jetbrains.PyCharm-Professional
+      - com.jetbrains.DataGrip
+      - dev.k8slens.OpenLens
+      - rest.insomnia.Insomnia
+      - com.jgraph.drawio.desktop
+    method: system
+
+- name: INSTALL ONEPASSWORD FLATPAK
+  community.general.flatpak:
+    name:  https://downloads.1password.com/linux/flatpak/1Password.flatpakref
+    state: present
+    method: system
