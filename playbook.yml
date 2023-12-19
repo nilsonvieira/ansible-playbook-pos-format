@@ -3,4 +3,4 @@
   become_method: sudo
   hosts: remote
   roles:
-    - packages
+    - default

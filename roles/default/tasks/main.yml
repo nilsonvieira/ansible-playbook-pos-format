@@ -5,7 +5,7 @@
     upgrade: dist
     force_apt_get: yes
 
-- name: "DEFAULT PACKS"
+- name: "INSTALL DEFAULT PACKS"
   tags: default
   apt:
     name: "{{ packages }}"
@@ -25,16 +25,29 @@
       - nmap
       - wireguard
       - resolvconf
+      - flatpak
+      - snapd
 
-- name: WIREGUARD PACKS
+- name: INSTALL WIREGUARD PACKS
   tags:
     - wireguard
     - default
-  include: wireguard.yml
+  include_tasks: wireguard.yml
 
-- name: HASHCORP PACKS
+- name: INSTALL HASHCORP PACKS
   tags:
     - hashcorp
     - default
-  include: wireguard.yml
-      
+  include_tasks: hashicorp.yml
+
+- name: INSTALL SNAPS PACKS
+  tags:
+    - snaps
+    - default
+  include_tasks: snap.yml
+
+- name: INSTALL FLATPAK PACKS
+  tags:
+    - flatpak
+    - default
+  include_tasks: flatpak.yml
