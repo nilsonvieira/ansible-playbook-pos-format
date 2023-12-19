@@ -16,9 +16,18 @@ sudo chmod 600 $HOME/.ssh/authorized_keys
 ## Change IP
 Edit IP for remote use. Add the IP for your remote Host on file `hosts`
 
+## Add SSH Agent on Environment
+
+```bash
+eval `ssh-agent`
+ssh-add
+``````
+
 ## Execute Playbook
 ```bash
-ansible-playbook -i hosts site.yml -e usuario=$USER --ask-become-pass
+ansible-playbook -i hosts playbook.yml -e usuario=$USER --ask-become-pass
 ```
 # Distro Tests
 - Pop!_OS 22.04
+- Ubuntu 22.04 
+- Linux Mint 20
