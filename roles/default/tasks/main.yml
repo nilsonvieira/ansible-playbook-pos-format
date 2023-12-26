@@ -40,6 +40,12 @@
     - default
   include_tasks: hashicorp.yml
 
+- name: INSTALL VSCODE PACKS
+  tags:
+    - vscode
+    - default
+  include_tasks: vscode.yml
+
 - name: INSTALL SNAPS PACKS
   tags:
     - snaps
