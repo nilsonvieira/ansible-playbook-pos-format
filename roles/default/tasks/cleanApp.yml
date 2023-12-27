@@ -10,5 +10,9 @@
       - com.onepassword.OnePassword
       - dev.k8slens.OpenLens
       - rest.insomnia.Insomnia
+      - com.jetbrains.IntelliJ-IDEA-Ultimate
+      - com.jetbrains.GoLand
+      - com.jetbrains.PyCharm-Professional
+      - com.jetbrains.DataGrip
     method: system
     state: absent

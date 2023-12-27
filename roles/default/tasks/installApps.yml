@@ -43,4 +43,17 @@
 - name: RECONFIGURE RESOLVCONF
   command: sudo dpkg-reconfigure -f noninteractive resolvconf
 
+- name: COPY SCRIPT FOR INSTALL JETBRAINS TOOLBOX
+  ansible.builtin.copy:
+    src: ./files/jetbrains-toolbox.sh
+    dest: /home/{{ usuario }}/Downloads/jetbrains-toolbox.sh
+    mode: '0777'
+  tags: 
+  - default
+  - apps
 
+- name: EXECUTE SCRIPT FOR INSTALL JETBRAINS TOOLBOX
+  ansible.builtin.shell: /home/{{ usuario }}/Downloads/jetbrains-toolbox.sh >> /tmp/jetbrains.txt
+  tags: 
+  - default
+  - apps

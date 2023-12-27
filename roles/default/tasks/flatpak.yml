@@ -11,9 +11,5 @@
     name:
       - com.spotify.Client
       - com.getpostman.Postman
-      - com.jetbrains.IntelliJ-IDEA-Ultimate
-      - com.jetbrains.GoLand
-      - com.jetbrains.PyCharm-Professional
-      - com.jetbrains.DataGrip
       - com.jgraph.drawio.desktop
     method: system
