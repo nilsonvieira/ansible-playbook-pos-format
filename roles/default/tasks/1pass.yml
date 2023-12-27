@@ -1,0 +1,26 @@
+- name: ADD APT KEY 1PASS
+  tags:
+  - 1pass
+  ansible.builtin.apt_key:
+    id: 3FEF9748469ADBE15DA7CA80AC2D62742012EA22
+    url: https://downloads.1password.com/linux/keys/1password.asc
+    keyring: /usr/share/keyrings/1password-archive-keyring.gpg
+
+- name: ADD REPOS 1PASS
+  apt_repository:
+    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main
+    state: present
+    filename: 1password.list
+  tags:
+  - 1pass
+
+- name: INSTALAR PACKS 1PASS
+  apt:
+    name: '{{ packages }}'
+    state: present
+  become: true
+  vars:
+    packages:
+      - 1password
+  tags:
+  - 1pass

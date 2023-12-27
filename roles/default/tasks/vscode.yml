@@ -1,13 +1,3 @@
-- name: REMOVE VSCODE FLATPAK APP
-  tags:
-  - vscode
-  community.general.flatpak:
-    name:
-      - com.visualstudio.code
-    method: system
-    state: absent
-
-
 - name: INSTALL DEPENDENCIES
   become: true
   ansible.builtin.apt:

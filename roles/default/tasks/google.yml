@@ -1,13 +1,3 @@
----
-- name: REMOVE GOOGLE FLATPAK APP
-  tags:
-  - google
-  community.general.flatpak:
-    name:
-      - com.google.Chrome
-    method: system
-    state: absent
-
 - name: ADD APT KEY CHROME
   apt_key:
     url: https://dl.google.com/linux/linux_signing_key.pub
@@ -19,7 +9,7 @@
   apt_repository:
     repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
     state: present
-    filename: hashicorp.list
+    filename: google.list
   tags:
   - google
 

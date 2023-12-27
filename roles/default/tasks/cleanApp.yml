@@ -1,0 +1,12 @@
+- name: REMOVE FLATPAK APPS
+  tags:
+  - clean
+  community.general.flatpak:
+    name:
+      - com.visualstudio.code
+      - com.google.Chrome
+      - org.telegram.desktop
+      - com.discordapp.Discord
+      - com.onepassword.OnePassword
+    method: system
+    state: absent

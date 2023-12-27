@@ -10,8 +10,6 @@
   community.general.flatpak:
     name:
       - com.spotify.Client
-      - org.telegram.desktop
-      - com.discordapp.Discord
       - com.getpostman.Postman
       - com.jetbrains.IntelliJ-IDEA-Ultimate
       - com.jetbrains.GoLand
@@ -20,10 +18,4 @@
       - dev.k8slens.OpenLens
       - rest.insomnia.Insomnia
       - com.jgraph.drawio.desktop
-    method: system
-
-- name: INSTALL ONEPASSWORD FLATPAK
-  community.general.flatpak:
-    name:  https://downloads.1password.com/linux/flatpak/1Password.flatpakref
-    state: present
     method: system

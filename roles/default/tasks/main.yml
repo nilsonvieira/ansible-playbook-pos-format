@@ -28,6 +28,12 @@
       - flatpak
       - snapd
 
+- name: REMOVE UNECESSARY APPS
+  tags:
+    - default
+    - clean
+  include_tasks: cleanApp.yml
+
 - name: INSTALL WIREGUARD PACKS
   tags:
     - wireguard
@@ -51,6 +57,12 @@
     - google
     - default
   include_tasks: google.yml
+
+- name: INSTALL 1PASSWORD PACKS
+  tags:
+    - 1pass
+    - default
+  include_tasks: 1pass.yml
 
 - name: INSTALL SNAPS PACKS
   tags:
