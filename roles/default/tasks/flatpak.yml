@@ -10,11 +10,9 @@
   community.general.flatpak:
     name:
       - com.spotify.Client
-      - com.google.Chrome
       - org.telegram.desktop
       - com.discordapp.Discord
       - com.getpostman.Postman
-      - com.visualstudio.code
       - com.jetbrains.IntelliJ-IDEA-Ultimate
       - com.jetbrains.GoLand
       - com.jetbrains.PyCharm-Professional

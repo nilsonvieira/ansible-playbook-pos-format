@@ -46,6 +46,12 @@
     - default
   include_tasks: vscode.yml
 
+- name: INSTALL GOOGLE PACKS
+  tags:
+    - google
+    - default
+  include_tasks: google.yml
+
 - name: INSTALL SNAPS PACKS
   tags:
     - snaps
