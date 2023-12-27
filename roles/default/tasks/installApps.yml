@@ -39,6 +39,7 @@
       - 1password
       - lens
       - insomnia
+      - spotify-client
 
 - name: RECONFIGURE RESOLVCONF
   command: sudo dpkg-reconfigure -f noninteractive resolvconf

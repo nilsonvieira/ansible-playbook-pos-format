@@ -10,7 +10,7 @@
   apt_repository:
     repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
     state: present
-    filename: google.list
+    filename: google
   tags:
   - google
 
@@ -27,7 +27,7 @@
   apt_repository:
     repo: deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main
     state: present
-    filename: vscode.list
+    filename: vscode
   tags:
   - vscode
   
@@ -41,7 +41,7 @@
   apt_repository:
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main
     state: present
-    filename: hashicorp.list
+    filename: hashicorp
 
 # CONFIGURE 1PASSWORD REPOS
 - name: ADD APT KEY 1PASS
@@ -56,7 +56,7 @@
   apt_repository:
     repo: deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main
     state: present
-    filename: 1password.list
+    filename: 1password
   tags:
   - 1pass
 
@@ -73,7 +73,7 @@
   apt_repository:
     repo: deb [arch=amd64 signed-by=/usr/share/keyrings/lens-archive-keyring.gpg] https://downloads.k8slens.dev/apt/debian stable main
     state: present
-    filename: lens.list
+    filename: lens
   tags:
   - lens
 
@@ -82,6 +82,23 @@
   apt_repository:
     repo: deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all
     state: present
-    filename: insomnia.list
+    filename: insomnia
   tags:
   - insomnia
+
+# SPOTIFY REPOS
+- name: ADD APT KEY SPOTIFY
+  apt_key:
+    url: https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg
+    state: present
+    keyring: /etc/apt/trusted.gpg.d/spotify.gpg
+  tags:
+  - spotify
+
+- name: ADD REPOS SPOTIFY
+  apt_repository:
+    repo: deb http://repository.spotify.com stable non-free
+    state: present
+    filename: spotify
+  tags:
+  - spotify

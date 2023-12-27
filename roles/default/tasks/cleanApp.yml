@@ -14,5 +14,8 @@
       - com.jetbrains.GoLand
       - com.jetbrains.PyCharm-Professional
       - com.jetbrains.DataGrip
+      - com.spotify.Client
+      - com.getpostman.Postman
+      - com.jgraph.drawio.desktop
     method: system
     state: absent

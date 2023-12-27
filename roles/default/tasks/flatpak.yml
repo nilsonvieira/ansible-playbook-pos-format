@@ -6,10 +6,7 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: system
 
-- name: INSTALL FLATPAK APPS
-  community.general.flatpak:
-    name:
-      - com.spotify.Client
-      - com.getpostman.Postman
-      - com.jgraph.drawio.desktop
-    method: system
+# - name: INSTALL FLATPAK APPS
+#   community.general.flatpak:
+#     name:
+#     method: system
