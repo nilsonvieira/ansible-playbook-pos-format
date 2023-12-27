@@ -15,7 +15,5 @@
       - com.jetbrains.GoLand
       - com.jetbrains.PyCharm-Professional
       - com.jetbrains.DataGrip
-      - dev.k8slens.OpenLens
-      - rest.insomnia.Insomnia
       - com.jgraph.drawio.desktop
     method: system

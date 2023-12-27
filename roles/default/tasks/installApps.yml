@@ -1,0 +1,46 @@
+- name: UPDATE PACKS
+  tags: default
+  apt:
+    upgrade: dist
+    force_apt_get: yes
+
+- name: "INSTALL DEFAULT PACKS"
+  tags: 
+  - default
+  - apps
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - vim
+      - curl
+      - wget
+      - remmina
+      - zenity
+      - flameshot
+      - alacarte
+      - htop
+      - btop
+      - nmap
+      - wireguard
+      - resolvconf
+      - flatpak
+      - snapd
+      - resolvconf
+      - wireguard
+      - google-chrome-stable
+      - ca-certificates
+      - apt-transport-https
+      - code
+      - terraform
+      - vagrant
+      - 1password
+      - lens
+      - insomnia
+
+- name: RECONFIGURE RESOLVCONF
+  command: sudo dpkg-reconfigure -f noninteractive resolvconf
+
+

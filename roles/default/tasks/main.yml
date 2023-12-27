@@ -1,68 +1,21 @@
 ---
-- name: UPDATE PACKS
-  tags: default
-  apt:
-    upgrade: dist
-    force_apt_get: yes
-
-- name: "INSTALL DEFAULT PACKS"
-  tags: default
-  apt:
-    name: "{{ packages }}"
-    state: present
-    update_cache: yes
-  vars:
-    packages:
-      - vim
-      - curl
-      - wget
-      - remmina
-      - zenity
-      - flameshot
-      - alacarte
-      - htop
-      - btop
-      - nmap
-      - wireguard
-      - resolvconf
-      - flatpak
-      - snapd
-
 - name: REMOVE UNECESSARY APPS
   tags:
     - default
     - clean
   include_tasks: cleanApp.yml
 
-- name: INSTALL WIREGUARD PACKS
+- name: INSTALL ALL APPS
   tags:
-    - wireguard
     - default
-  include_tasks: wireguard.yml
+    - apps
+  include_tasks: configureRepos.yml
 
-- name: INSTALL HASHCORP PACKS
+- name: INSTALL ALL APPS
   tags:
-    - hashcorp
     - default
-  include_tasks: hashicorp.yml
-
-- name: INSTALL VSCODE PACKS
-  tags:
-    - vscode
-    - default
-  include_tasks: vscode.yml
-
-- name: INSTALL GOOGLE PACKS
-  tags:
-    - google
-    - default
-  include_tasks: google.yml
-
-- name: INSTALL 1PASSWORD PACKS
-  tags:
-    - 1pass
-    - default
-  include_tasks: 1pass.yml
+    - apps
+  include_tasks: installApps.yml
 
 - name: INSTALL SNAPS PACKS
   tags:

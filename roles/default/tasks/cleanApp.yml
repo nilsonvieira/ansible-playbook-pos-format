@@ -8,5 +8,7 @@
       - org.telegram.desktop
       - com.discordapp.Discord
       - com.onepassword.OnePassword
+      - dev.k8slens.OpenLens
+      - rest.insomnia.Insomnia
     method: system
     state: absent
