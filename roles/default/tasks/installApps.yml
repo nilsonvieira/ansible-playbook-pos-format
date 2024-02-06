@@ -24,37 +24,51 @@
       - htop
       - btop
       - nmap
-      - wireguard
-      - resolvconf
-      - flatpak
-      - snapd
-      - resolvconf
-      - wireguard
-      - google-chrome-stable
+      # - wireguard
+      # - resolvconf
+      # - flatpak
+      # - snapd
+      # - google-chrome-stable
       - ca-certificates
       - apt-transport-https
-      - code
-      - terraform
-      - vagrant
-      - 1password
-      - lens
-      - insomnia
-      - spotify-client
+      # - code
+      # - terraform
+      # - vagrant
+      # - 1password
+      # - lens
+      # - insomnia
+      # - spotify-client
 
-- name: RECONFIGURE RESOLVCONF
-  command: sudo dpkg-reconfigure -f noninteractive resolvconf
-
-- name: COPY SCRIPT FOR INSTALL JETBRAINS TOOLBOX
+- name: COPY SCRIPT SOLVE UPDATES
   ansible.builtin.copy:
-    src: ./files/jetbrains-toolbox.sh
-    dest: /home/{{ usuario }}/Downloads/jetbrains-toolbox.sh
+    src: ./files/solveUpdate.sh
+    dest: /home/{{ usuario }}/Downloads/solveUpdate.sh
     mode: '0777'
   tags: 
   - default
   - apps
 
-- name: EXECUTE SCRIPT FOR INSTALL JETBRAINS TOOLBOX
-  ansible.builtin.shell: /home/{{ usuario }}/Downloads/jetbrains-toolbox.sh >> /tmp/jetbrains.txt
+- name: RUN A SCRIPT TO SOLVE PROBLEMS IN UPDATE PACKS
+  ansible.builtin.shell: /home/{{ usuario }}/Downloads/solveUpdate.sh || /bin/true
   tags: 
   - default
   - apps
+
+  
+# - name: RECONFIGURE RESOLVCONF
+#   command: sudo dpkg-reconfigure -f noninteractive resolvconf
+
+# - name: COPY SCRIPT FOR INSTALL JETBRAINS TOOLBOX
+#   ansible.builtin.copy:
+#     src: ./files/jetbrains-toolbox.sh
+#     dest: /home/{{ usuario }}/Downloads/jetbrains-toolbox.sh
+#     mode: '0777'
+#   tags: 
+#   - default
+#   - apps
+
+# - name: EXECUTE SCRIPT FOR INSTALL JETBRAINS TOOLBOX
+#   ansible.builtin.shell:  >> /tmp/jetbrains.txt
+#   tags: 
+#   - default
+#   - apps

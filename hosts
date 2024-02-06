@@ -1,4 +1,6 @@
 [local]
 localhost
-[remote]
+[predator]
 192.168.1.14
+[nitro]
+192.168.1.7

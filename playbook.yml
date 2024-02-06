@@ -1,6 +1,7 @@
 - name: MENU
   become: true
   become_method: sudo
-  hosts: remote
+  hosts: nitro
   roles:
     - default
+    - vscode

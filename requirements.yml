@@ -1,0 +1,3 @@
+- name: vscode
+  src: https://github.com/nilsonvieira/ansible-role-vscode
+  version: main

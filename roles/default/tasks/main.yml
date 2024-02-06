@@ -5,11 +5,11 @@
     - clean
   include_tasks: cleanApp.yml
 
-- name: INSTALL ALL APPS
-  tags:
-    - default
-    - apps
-  include_tasks: configureRepos.yml
+# - name: INSTALL ALL APPS
+#   tags:
+#     - default
+#     - apps
+#   include_tasks: configureRepos.yml
 
 - name: INSTALL ALL APPS
   tags:
@@ -17,14 +17,14 @@
     - apps
   include_tasks: installApps.yml
 
-- name: INSTALL SNAPS PACKS
-  tags:
-    - snaps
-    - default
-  include_tasks: snap.yml
+# - name: INSTALL SNAPS PACKS
+#   tags:
+#     - snaps
+#     - default
+#   include_tasks: snap.yml
 
-- name: INSTALL FLATPAK PACKS
-  tags:
-    - flatpak
-    - default
-  include_tasks: flatpak.yml
+# - name: INSTALL FLATPAK PACKS
+#   tags:
+#     - flatpak
+#     - default
+#   include_tasks: flatpak.yml
