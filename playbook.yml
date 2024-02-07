@@ -5,3 +5,6 @@
   roles:
     - default
     - vscode
+    - hashicorp
+    - 1password
+    - k8s

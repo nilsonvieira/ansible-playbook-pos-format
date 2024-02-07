@@ -29,13 +29,6 @@
       # - flatpak
       # - snapd
       # - google-chrome-stable
-      - ca-certificates
-      - apt-transport-https
-      # - code
-      # - terraform
-      # - vagrant
-      # - 1password
-      # - lens
       # - insomnia
       # - spotify-client
 
