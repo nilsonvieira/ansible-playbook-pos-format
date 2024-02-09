@@ -28,7 +28,6 @@
       # - resolvconf
       # - flatpak
       # - snapd
-      # - google-chrome-stable
       # - spotify-client
 
 - name: COPY SCRIPT SOLVE UPDATES

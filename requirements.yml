@@ -17,3 +17,7 @@
 - name: apiclient
   src: https://github.com/nilsonvieira/ansible-role-apiclient
   version: main
+
+- name: browsers
+  src: https://github.com/nilsonvieira/ansible-role-browsers
+  version: main
