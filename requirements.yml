@@ -13,3 +13,7 @@
 - name: k8s
   src: https://github.com/nilsonvieira/ansible-role-k8s
   version: main
+
+- name: apiclient
+  src: https://github.com/nilsonvieira/ansible-role-apiclient
+  version: main

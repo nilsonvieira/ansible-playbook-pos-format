@@ -14,15 +14,6 @@
 #   tags:
 #   - google
 
-# # INSOMNIA REPOS
-# - name: ADD REPOS INSOMNIA
-#   apt_repository:
-#     repo: deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all
-#     state: present
-#     filename: insomnia
-#   tags:
-#   - insomnia
-
 # # SPOTIFY REPOS
 # - name: ADD APT KEY SPOTIFY
 #   apt_key:

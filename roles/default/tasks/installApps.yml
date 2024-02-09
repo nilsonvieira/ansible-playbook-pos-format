@@ -29,7 +29,6 @@
       # - flatpak
       # - snapd
       # - google-chrome-stable
-      # - insomnia
       # - spotify-client
 
 - name: COPY SCRIPT SOLVE UPDATES
