@@ -1,30 +1,63 @@
----
-- name: REMOVE UNECESSARY APPS
-  tags:
-    - default
-    - clean
-  include_tasks: cleanApp.yml
+- name: UPDATE PACKS
+  tags: default
+  apt:
+    upgrade: dist
+    force_apt_get: yes
 
-# - name: INSTALL ALL APPS
-#   tags:
-#     - default
-#     - apps
-#   include_tasks: configureRepos.yml
+- name: "INSTALL DEFAULT PACKS"
+  tags: 
+  - default
+  - apps
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - vim
+      - curl
+      - wget
+      - remmina
+      - zenity
+      - flameshot
+      - alacarte
+      - htop
+      - btop
+      - nmap
+      - wireguard
+      - resolvconf
+      - flatpak
+      - snapd
 
-- name: INSTALL ALL APPS
-  tags:
-    - default
-    - apps
-  include_tasks: installApps.yml
+- name: COPY SCRIPT SOLVE UPDATES
+  ansible.builtin.copy:
+    src: ./files/solveUpdate.sh
+    dest: /home/{{ usuario }}/Downloads/solveUpdate.sh
+    mode: '0777'
+  tags: 
+  - default
+  - apps
 
-# - name: INSTALL SNAPS PACKS
-#   tags:
-#     - snaps
-#     - default
-#   include_tasks: snap.yml
+- name: RUN A SCRIPT TO SOLVE PROBLEMS IN UPDATE PACKS
+  ansible.builtin.shell: /home/{{ usuario }}/Downloads/solveUpdate.sh || /bin/true
+  tags: 
+  - default
+  - apps
 
-# - name: INSTALL FLATPAK PACKS
-#   tags:
-#     - flatpak
-#     - default
-#   include_tasks: flatpak.yml
+- name: RECONFIGURE RESOLVCONF
+  command: sudo dpkg-reconfigure -f noninteractive resolvconf
+
+- name: COPY SCRIPT FOR INSTALL JETBRAINS TOOLBOX
+  ansible.builtin.copy:
+    src: ./files/jetbrains-toolbox.sh
+    dest: /home/{{ usuario }}/Downloads/jetbrains-toolbox.sh
+    mode: '0777'
+  tags: 
+  - default
+  - apps
+
+- name: EXECUTE SCRIPT FOR INSTALL JETBRAINS TOOLBOX
+  ansible.builtin.shell: /home/{{ usuario }}/Downloads/jetbrains-toolbox.sh >> /tmp/jetbrains.txt
+  tags: 
+  - default
+  - apps

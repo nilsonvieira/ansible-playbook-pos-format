@@ -1,9 +1,0 @@
----
-- name: INSTALL TERMIUS APP FROM SNAP
-  community.general.snap:
-    name:
-      - termius-app
-      - drawio
-      - postman
-  tags:
-  - snaps

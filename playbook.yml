@@ -3,10 +3,10 @@
   become_method: sudo
   hosts: nitro
   roles:
-    # - default
-    # - vscode
-    # - hashicorp
-    # - 1password
-    # - k8s
-    # - apiclient
+    - default
+    - vscode
+    - hashicorp
+    - 1password
+    - k8s
+    - apiclient
     - browsers
